@@ -114,9 +114,6 @@ function list(path){
     $('#table').html(content);
 
     var password = localStorage.getItem('password'+path);
-
-    // $('#list').html(`<div class="mdui-progress"><div class="mdui-progress-indeterminate"></div></div>`);
-    // $('#list').html(html);
     $.post(path,'{"password":"'+password+'"}', function(data,status){
         var obj = jQuery.parseJSON(data);
         if(typeof obj != 'null' && obj.hasOwnProperty('error') && obj.error.code == '401'){
@@ -136,6 +133,7 @@ function list(path){
 function list_files(path,files){
     html = "";
     configpath = "";
+    $("#md").hide();
     for(i in files){
         var item = files[i];
         if(item['size']==undefined){
@@ -281,7 +279,7 @@ function list_files(path,files){
                 $.get(p, function(data){
                     $('#mdcontain').children().remove();
                     $('#mdcontain').append(marked.marked(data));
-                    $('#md').show();
+                    $("#md").show();
                 });
             }else{
                 html += `
@@ -389,10 +387,6 @@ function list_files(path,files){
                         // 查找html中那一个tr中的第一个td的内容是否与json中的name相同
                         var trs = document.getElementsByTagName("tr");
                         for(var j=0;j<trs.length;j++) {
-                            console.log("============");
-                            console.log(trs[j].children[0].innerText);
-                            console.log(tmpFileName);
-                            console.log(trs[j].children[0].innerText == tmpFileName);
                             if (trs[j].children[0].innerText == tmpFileName) {
                                 trs[j].children[4].innerText = tmpFileDesc;
                                 break;
