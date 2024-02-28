@@ -1,12 +1,14 @@
 document.write(`
 <style>
 *{box-sizing:border-box}
-h1{border-bottom:1px solid silver;margin-bottom:10px;padding-bottom:10px;white-space:nowrap}
+h1{border-bottom:1px solid silver;margin-bottom:10px;padding-bottom:10px;white-space:nowrap; width: 100%}
 table{border-collapse:collapse;font-family:Consolas,monaco,monospace}
-th{font-weight:700}
+th{font-weight:700; padding-left: 10px; padding-right: 10px}
+td{padding-left: 5px; padding-right: 10px}
 .file-name{text-align:left}
 .file-type{text-align:center}
 .file-size{padding-left:4em}
+.file-desc{text-align:left}
 .file-date-created,
 .file-date-modified{padding-left:2em}
 .file-date-created,
@@ -28,14 +30,14 @@ th{font-weight:700}
 .icon-bat{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAMAAADjcdz2AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABy1BMVEUBAAAIBwYPDw4AAAAHBwcREA4UEg8REA8NDQ0ODg4AAwUZFRFKQjYHCAkAAgcxGg+fj3cSEA4BBgkwGhColHYVFBIOCwhMKRink3WqlXcWFBJ+b1kTExIXGBkSExMNDAwvOkEwO0IqNjwUGBt7bFYyLSVlWUdsX0tlWUYwNDMZHyMAAAAAAAAAAAAQFBYnMjclLzQSFhhvYk6BcVqAcFl/cVx/cl+AcV19cFxQNCPfxJz/4rT/4LL95cH66tL95sX+6MmCQiRqQSrexJz/4rP/4LP/4bT/4rVsOSBvVT/x1Kn/4bNhVUS4oYC5ooHjyJ+LemH/5Lb/47X/47T/5baIeF/z1qrIsIzAqYfCq4j73K+FeWQ2QUU1QEU1P0QyPULw06daWE8hPEEITEcKWFIKWFMJU00SLi4ZHyPw0qdbWFAaREYAYlgAZFoAl4kAmIoAjoAJOjYYHSAbREYAQjwAbmQAin0AlogAjX8YHSEbQ0UAdWoAh3oAhnrz1alcWVAAjH+JeGDny6Lny6HBqYZNTEYcQ0YAi37HrovJsY2QfmRAQDwcQ0UAiHsAk4UAinwIODQpQEYTR0UUS0kUSEYaMDIqNDoqMzr///9hvpbWAAAAMnRSTlMAAAAAAAAAAAAAI8zRIRiy+0wXqftQsf77+038f0JBG/r498b9i8nLy+39AxASdvn+u16Vj4MAAAABYktHRJh20QY+AAAACXBIWXMAAABgAAAAYADwa0LPAAAAB3RJTUUH5AUJCgI2BPJBAwAAAOlJREFUGNNjYGDk4jYyNjE1M7fg4WViZmZg4eO3tLK2sbWzdxAQZAUKCAk7Ojm72Li6ubqLiLIBBcTEPTy9vG2AwFoCLODj6+cP5sMEAgKDvL2Dg4AgRFKKnYOTIdTbxjssPAIIIqVlZOXkQQJR0TGxcUAQr6CopAwU8E5ITEpOAYHUtPQMkEBmVnZObl5+Xl5+QWERRKA4t6S0LK88r6KwEiJQVV1TWgsTsLauq69qAOoohwg0NjW3tLa1A7lQAZWOzq7unt4+MOifUMSgqqauoTlx0mQwmDJVi0FbR1dHT3/adDCYZmAIAH4CVo8G3xMtAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTA1LTA5VDEwOjAyOjU0KzAwOjAwyjj+qgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0wNS0wOVQxMDowMjo1NCswMDowMLtlRhYAAAAASUVORK5CYII=) left top no-repeat}
 .icon-html{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAATCAQAAAA3m5V5AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAGAAAABgAPBrQs8AAAAHdElNRQfkBQkKBRXp1Ka2AAABeElEQVQoz3WSzStEYRTGf+97L3MNY2SBGfKdYqesbCRr2VrJavwDylZJskGhSBnZWxobOxuJjXxFUYo0NaUZbsZ177G4F3fEczan0+k5zznnoWJV53mhEIoXVYxOp3Qr7fhQRk7POYcYfEGIsaiT0cnCWicG1wDk6KUUMY4R/Vw1Dt10ARpCLICFpZSAF7cXqkYuUUFTCRL0F8o31B4ZL/86DHfBuL5wUzMJwCpDM8+2z2H+ZrqnmTYeHGCfuBdUfzH9BQ1IaUkBMQQryP1xBqNcE6OOOC0ojiqtyKm6qhnUEbueE85MBIMxdmiimxtS5CRrjzt27WZ+xj0gicOZL9+ljUZspjlgi7R8eB35RSkTDxf52W4Ckx08BEH40LORR3uABkpOsEw9FYFOUO93zq70kgBMlA52fCCLBnTwBy2gQSmmyJgoXNa55YJqhDRPFFniHMio6nKj2PO3C0IX839vGughpxIDxWNgnpC1XD/5duYbK/8xfgIXV3unfHDg0QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0wNS0wOVQxMDowNToyMSswMDowMHAZw20AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDUtMDlUMTA6MDU6MjErMDA6MDABRHvRAAAAAElFTkSuQmCC) left top no-repeat}
 .icon-rar{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAASCAQAAAAul0yEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAGAAAABgAPBrQs8AAAAHdElNRQfkBQkKBzZ5hbVGAAABZ0lEQVQoz12SPSjEcRjHP7+Xu59z56XzEhIuk8F2isFmMxhMUnal1NmUiUzYThl0ZVBmVjNZxEAhfyVFuPP2P/R/+RmOc3ye8dvz7en7fTBbosDj74iPqmxfpJ1uAIS6EDP+NZISITNiNDZdXOuhikPgiGYqWcbK+5phWAXgmNYfpQtQC1isOkmk4oCuXHSIEt14L4axYMTtxPkn5/AQZ+EiipS1/DcvI+mhnh9zDfhEaMTlFUlt+HIaIEigAZtSTisa39y61SSx+t6YYh2IFw2EV71BDunL26zfb9OBeNoOkwxar/igAevVU2DOjnwO2QYytHljWLJc+tnS5QEpZmmTB0GSODEsigkKUpbCFCKvOyKfZoMm5slg8LSr0rGVkqysk5iUHh3cMU4GD8SS2QzTGhDcsKv3ElNvHzTj8MoOeOct+8/d5UokccyfbJIYtIqLAf8aGebdy7/R5QG+3+GZ9XLnFXwBD+yC4BnhT5YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDUtMDlUMTA6MDc6NTQrMDA6MDAsETXuAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA1LTA5VDEwOjA3OjU0KzAwOjAwXUyNUgAAAABJRU5ErkJggg==) left top no-repeat}
-.mdui-typo{font-size:16px;line-height:1.5;border-top:1px solid silver;margin-top:10px;padding-top:10px;white-space:nowrap}
+.mdui-typo{font-size:16px;line-height:1.5;margin-top:10px;padding-top:10px;white-space:nowrap; width: 100%}
 </style>`);
 
 
 // .icon-image{background:url() left top no-repeat}
 // .icon-video{background:url() left top no-repeat}
-// 
-// 
+//
+//
 // .icon-pdf{background:url() left top no-repeat}
 // .icon-msword{background:url() left top no-repeat}
 
@@ -49,22 +51,24 @@ function init(){
     <h1 id="heading">Index of <?php echo urldecode($path);?></h1>
     <table id="table">
     </table>
-<!--    添加markdown文本阅读区域-->
-    <div id="md" class="mdui-typo" style="display:none;padding: 20px;"></div>
+    <div id="md" class="mdui-typo" style="display:none;">
+    <h1 id="heading">README.md</h1>
+    <div id="mdcontain"></div>
+    </div>
 	`;
     $('body').html(html);
 }
 
 function render(path){
-	if(path.indexOf("?") > 0){
-		path = path.substr(0,path.indexOf("?"));
-	}
+    if(path.indexOf("?") > 0){
+        path = path.substr(0,path.indexOf("?"));
+    }
     title(path);
     nav(path);
     if(path.substr(-1) == '/'){
-    	list(path);
+        list(path);
     }else{
-	    file(path);
+        file(path);
     }
 }
 
@@ -77,21 +81,27 @@ function title(path){
 
 // 渲染导航栏
 function nav(path){
-	path = decodeURI(path);
+    path = decodeURI(path);
     $('#heading').html('Index of '+path);
 }
 
 // 渲染文件列表
 function list(path){
-	var content = `
-<tr><th class="file-name">Name</th><th class="file-size">Size</th><th class="file-date-modified">Date Modified</th><th class="file-type">Type</th></tr>
+    var content = `
+    <tr>
+        <th class="file-name">Name</th>
+        <th class="file-size">Size</th>
+        <th class="file-date-modified">Date Modified</th>
+        <th class="file-type">Type</th>
+        <th class="file-desc">Description</th>
+    </tr>
 	`;
 
-	if(path != '/'){
-		var up = path.split('/');
-		up.pop();up.pop();
-		up = up.join('/')+'/';
-		content += `
+    if(path != '/'){
+        var up = path.split('/');
+        up.pop();up.pop();
+        up = up.join('/')+'/';
+        content += `
 <tr>
 	<td class="file-name">
 		<a class="icon icon-up folder" href="${up}">..</a>
@@ -99,14 +109,14 @@ function list(path){
 	<td class="file-size"></td>
 	<td class="file-date-modified"></td>
 </tr>
-		`;	
-	}
-	$('#table').html(content);
-	
+		`;
+    }
+    $('#table').html(content);
+
     var password = localStorage.getItem('password'+path);
-	
-	// $('#list').html(`<div class="mdui-progress"><div class="mdui-progress-indeterminate"></div></div>`);
-	// $('#list').html(html);
+
+    // $('#list').html(`<div class="mdui-progress"><div class="mdui-progress-indeterminate"></div></div>`);
+    // $('#list').html(html);
     $.post(path,'{"password":"'+password+'"}', function(data,status){
         var obj = jQuery.parseJSON(data);
         if(typeof obj != 'null' && obj.hasOwnProperty('error') && obj.error.code == '401'){
@@ -133,209 +143,237 @@ function list_files(path,files){
         item['modifiedTime'] = utc2beijing(item['modifiedTime']);
         item['size'] = formatFileSize(item['size']);
         if(item['mimeType'] == 'application/vnd.google-apps.folder'){
-        	var p = path+item.name+'/';
+            var p = path+item.name+'/';
             html +=`
 				<tr>
 					<td class="file-name"><a class="icon icon-dir folder" href="${p}">${item.name}/</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
+					<th class="file-type">folder</th>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'audio/mid'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-mid" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'audio/mpeg'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-audio" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'image/jpeg'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-image" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-                    <td class="file-date-modified">${item['mimeType']}</td>
+                    <td class="file-type">${item['mimeType']}</td>
+                    <th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'video/mpeg'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-video" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/x-7z-compressed'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-7z" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/x-zip-compressed'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-zip" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'text/plain'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-text" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'text/xml'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-xml" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/x-rar'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-rar" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'text/html'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-html" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/pdf'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-pdf" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-                    <td class="file-date-modified">${item['mimeType']}</td>
+                    <td class="file-type">${item['mimeType']}</td>
+                    <th class="file-desc"></th>
                     <td class="file-date-modified">${item['iconLink']}</td>
 				</tr>
             `;
         } else if(item['mimeType'] == 'text/markdown'){
-	        var p = path+item.name;
-            html += `
+            var p = path+item.name;
+            if(item['name']=="README.md"){
+                html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-md" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc">本页自述</th>
 				</tr>
             `;
+                $.get(p, function(data){
+                    $('#mdcontain').children().remove();
+                    $('#mdcontain').append(marked.marked(data));
+                    $('#md').show();
+                });
+            }else{
+                html += `
+				<tr>
+					<td class="file-name"><a class="icon icon-md" href="${p}">${item.name}</a></td>
+					<td class="file-size">${item['size']}</td>
+					<td class="file-date-modified">${item['modifiedTime']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
+				</tr>
+            `;
+            }
         } else if(item['mimeType'] == 'application/x-msdos-program'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-bat" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/x-msdownload'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-x-msdownload" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/x-bittorrent'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-application/x-bittorrent" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">${item['mimeType']}</td>
+					<td class="file-type">${item['mimeType']}</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/vnd.google-apps.spreadsheet'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-google.spreadsheet" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-                    <td class="file-date-modified">application/google.spreadsheet</td>
+                    <td class="file-type">application/google.spreadsheet</td>
+                    <th class="file-desc"></th>
                     <td class="file-date-modified">${item['iconLink']}</td>
                     
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/vnd.google-apps.presentation'){
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-google.presentation" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
 					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-date-modified">application/google.presentation</td>
+					<td class="file-type">application/google.presentation</td>
+					<th class="file-desc"></th>
 				</tr>
             `;
         } else{
-	        var p = path+item.name;
+            var p = path+item.name;
             html += `
 				<tr>
 					<td class="file-name"><a class="icon icon-file" href="${p}">${item.name}</a></td>
 					<td class="file-size">${item['size']}</td>
                     <td class="file-date-modified">${item['modifiedTime']}</td>
-                    <td class="file-date-modified">${item['mimeType']}</td>
+                    <td class="file-type">${item['mimeType']}</td>
+                    <th class="file-desc"></th>
 				</tr>
             `;
         }
-        if(item['name']=="README.md"){
-            var p = path+item.name;
-            $.get(p, function(data){
-                var content = marked(data);
-                $('#md').html(content);
-                $('#md').show();
-            });
-        }
     }
     $('#table').append(html);
-	// $('#list').html(html);
 }
 
 
@@ -381,9 +419,6 @@ function formatFileSize(bytes) {
     return bytes;
 }
 
-function marked(data){
-    return data;
-}
 
 // 监听回退事件
 window.onpopstate = function(){
@@ -399,8 +434,8 @@ $(function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
         render(url);
+        $("#md").hide();
         return false;
     });
-
     render(path);
 });
