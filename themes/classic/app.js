@@ -135,6 +135,7 @@ function list(path){
 
 function list_files(path,files){
     html = "";
+    configpath = "";
     for(i in files){
         var item = files[i];
         if(item['size']==undefined){
@@ -272,7 +273,6 @@ function list_files(path,files){
 					<td class="file-date-modified">${item['modifiedTime']}</td>
                     <td class="file-type">${item['mimeType']}</td>
                     <th class="file-desc"></th>
-                    <td class="file-date-modified">${item['iconLink']}</td>
 				</tr>
             `;
         } else if(item['mimeType'] == 'text/markdown'){
@@ -297,9 +297,7 @@ function list_files(path,files){
         } else if(item['mimeType'] == 'application/json'){
             var p = path+item.name;
             if(item['name']=="rconfig.json"){
-                fetch(p)
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
+                configpath = p;
             }else{
                 html += `
                     <tr>
@@ -353,7 +351,6 @@ function list_files(path,files){
 					<td class="file-date-modified">${item['modifiedTime']}</td>
                     <td class="file-type">application/google.spreadsheet</td>
                     <th class="file-desc"></th>
-                    <td class="file-date-modified">${item['iconLink']}</td>
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/vnd.google-apps.presentation'){
@@ -381,6 +378,30 @@ function list_files(path,files){
         }
     }
     $('#table').append(html);
+    if(configpath !== ""){
+        fetch(configpath)
+            .then((response) => response.json())
+            .then((json) => {
+                if(json.hasOwnProperty('Desc')){
+                    for(i in json.Desc){
+                        tmpFileName = i;
+                        tmpFileDesc = json.Desc[i];
+                        // 查找html中那一个tr中的第一个td的内容是否与json中的name相同
+                        var trs = document.getElementsByTagName("tr");
+                        for(var j=0;j<trs.length;j++) {
+                            console.log("============");
+                            console.log(trs[j].children[0].innerText);
+                            console.log(tmpFileName);
+                            console.log(trs[j].children[0].innerText == tmpFileName);
+                            if (trs[j].children[0].innerText == tmpFileName) {
+                                trs[j].children[4].innerText = tmpFileDesc;
+                                break;
+                            }
+                        }
+                    }
+                }
+            });
+    }
 }
 
 
