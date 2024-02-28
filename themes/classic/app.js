@@ -278,15 +278,6 @@ function list_files(path,files){
         } else if(item['mimeType'] == 'text/markdown'){
             var p = path+item.name;
             if(item['name']=="README.md"){
-                html += `
-				<tr>
-					<td class="file-name"><a class="icon icon-md" href="${p}">${item.name}</a></td>
-					<td class="file-size">${item['size']}</td>
-					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-type">${item['mimeType']}</td>
-					<th class="file-desc">本页自述</th>
-				</tr>
-            `;
                 $.get(p, function(data){
                     $('#mdcontain').children().remove();
                     $('#mdcontain').append(marked.marked(data));
@@ -294,14 +285,31 @@ function list_files(path,files){
                 });
             }else{
                 html += `
-				<tr>
-					<td class="file-name"><a class="icon icon-md" href="${p}">${item.name}</a></td>
-					<td class="file-size">${item['size']}</td>
-					<td class="file-date-modified">${item['modifiedTime']}</td>
-					<td class="file-type">${item['mimeType']}</td>
-					<th class="file-desc"></th>
-				</tr>
-            `;
+                    <tr>
+                        <td class="file-name"><a class="icon icon-md" href="${p}">${item.name}</a></td>
+                        <td class="file-size">${item['size']}</td>
+                        <td class="file-date-modified">${item['modifiedTime']}</td>
+                        <td class="file-type">${item['mimeType']}</td>
+                        <th class="file-desc"></th>
+                    </tr>
+                `;
+            }
+        } else if(item['mimeType'] == 'application/json'){
+            var p = path+item.name;
+            if(item['name']=="rconfig.json"){
+                fetch(p)
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            }else{
+                html += `
+                    <tr>
+                        <td class="file-name"><a class="icon icon-md" href="${p}">${item.name}</a></td>
+                        <td class="file-size">${item['size']}</td>
+                        <td class="file-date-modified">${item['modifiedTime']}</td>
+                        <td class="file-type">${item['mimeType']}</td>
+                        <th class="file-desc"></th>
+                    </tr>
+                `;
             }
         } else if(item['mimeType'] == 'application/x-msdos-program'){
             var p = path+item.name;
@@ -346,7 +354,6 @@ function list_files(path,files){
                     <td class="file-type">application/google.spreadsheet</td>
                     <th class="file-desc"></th>
                     <td class="file-date-modified">${item['iconLink']}</td>
-                    
 				</tr>
             `;
         } else if(item['mimeType'] == 'application/vnd.google-apps.presentation'){
