@@ -28,6 +28,7 @@ th{font-weight:700}
 .icon-bat{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAMAAADjcdz2AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABy1BMVEUBAAAIBwYPDw4AAAAHBwcREA4UEg8REA8NDQ0ODg4AAwUZFRFKQjYHCAkAAgcxGg+fj3cSEA4BBgkwGhColHYVFBIOCwhMKRink3WqlXcWFBJ+b1kTExIXGBkSExMNDAwvOkEwO0IqNjwUGBt7bFYyLSVlWUdsX0tlWUYwNDMZHyMAAAAAAAAAAAAQFBYnMjclLzQSFhhvYk6BcVqAcFl/cVx/cl+AcV19cFxQNCPfxJz/4rT/4LL95cH66tL95sX+6MmCQiRqQSrexJz/4rP/4LP/4bT/4rVsOSBvVT/x1Kn/4bNhVUS4oYC5ooHjyJ+LemH/5Lb/47X/47T/5baIeF/z1qrIsIzAqYfCq4j73K+FeWQ2QUU1QEU1P0QyPULw06daWE8hPEEITEcKWFIKWFMJU00SLi4ZHyPw0qdbWFAaREYAYlgAZFoAl4kAmIoAjoAJOjYYHSAbREYAQjwAbmQAin0AlogAjX8YHSEbQ0UAdWoAh3oAhnrz1alcWVAAjH+JeGDny6Lny6HBqYZNTEYcQ0YAi37HrovJsY2QfmRAQDwcQ0UAiHsAk4UAinwIODQpQEYTR0UUS0kUSEYaMDIqNDoqMzr///9hvpbWAAAAMnRSTlMAAAAAAAAAAAAAI8zRIRiy+0wXqftQsf77+038f0JBG/r498b9i8nLy+39AxASdvn+u16Vj4MAAAABYktHRJh20QY+AAAACXBIWXMAAABgAAAAYADwa0LPAAAAB3RJTUUH5AUJCgI2BPJBAwAAAOlJREFUGNNjYGDk4jYyNjE1M7fg4WViZmZg4eO3tLK2sbWzdxAQZAUKCAk7Ojm72Li6ubqLiLIBBcTEPTy9vG2AwFoCLODj6+cP5sMEAgKDvL2Dg4AgRFKKnYOTIdTbxjssPAIIIqVlZOXkQQJR0TGxcUAQr6CopAwU8E5ITEpOAYHUtPQMkEBmVnZObl5+Xl5+QWERRKA4t6S0LK88r6KwEiJQVV1TWgsTsLauq69qAOoohwg0NjW3tLa1A7lQAZWOzq7unt4+MOifUMSgqqauoTlx0mQwmDJVi0FbR1dHT3/adDCYZmAIAH4CVo8G3xMtAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTA1LTA5VDEwOjAyOjU0KzAwOjAwyjj+qgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0wNS0wOVQxMDowMjo1NCswMDowMLtlRhYAAAAASUVORK5CYII=) left top no-repeat}
 .icon-html{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAATCAQAAAA3m5V5AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAGAAAABgAPBrQs8AAAAHdElNRQfkBQkKBRXp1Ka2AAABeElEQVQoz3WSzStEYRTGf+97L3MNY2SBGfKdYqesbCRr2VrJavwDylZJskGhSBnZWxobOxuJjXxFUYo0NaUZbsZ177G4F3fEczan0+k5zznnoWJV53mhEIoXVYxOp3Qr7fhQRk7POYcYfEGIsaiT0cnCWicG1wDk6KUUMY4R/Vw1Dt10ARpCLICFpZSAF7cXqkYuUUFTCRL0F8o31B4ZL/86DHfBuL5wUzMJwCpDM8+2z2H+ZrqnmTYeHGCfuBdUfzH9BQ1IaUkBMQQryP1xBqNcE6OOOC0ojiqtyKm6qhnUEbueE85MBIMxdmiimxtS5CRrjzt27WZ+xj0gicOZL9+ljUZspjlgi7R8eB35RSkTDxf52W4Ckx08BEH40LORR3uABkpOsEw9FYFOUO93zq70kgBMlA52fCCLBnTwBy2gQSmmyJgoXNa55YJqhDRPFFniHMio6nKj2PO3C0IX839vGughpxIDxWNgnpC1XD/5duYbK/8xfgIXV3unfHDg0QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0wNS0wOVQxMDowNToyMSswMDowMHAZw20AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDUtMDlUMTA6MDU6MjErMDA6MDABRHvRAAAAAElFTkSuQmCC) left top no-repeat}
 .icon-rar{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAASCAQAAAAul0yEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAGAAAABgAPBrQs8AAAAHdElNRQfkBQkKBzZ5hbVGAAABZ0lEQVQoz12SPSjEcRjHP7+Xu59z56XzEhIuk8F2isFmMxhMUnal1NmUiUzYThl0ZVBmVjNZxEAhfyVFuPP2P/R/+RmOc3ye8dvz7en7fTBbosDj74iPqmxfpJ1uAIS6EDP+NZISITNiNDZdXOuhikPgiGYqWcbK+5phWAXgmNYfpQtQC1isOkmk4oCuXHSIEt14L4axYMTtxPkn5/AQZ+EiipS1/DcvI+mhnh9zDfhEaMTlFUlt+HIaIEigAZtSTisa39y61SSx+t6YYh2IFw2EV71BDunL26zfb9OBeNoOkwxar/igAevVU2DOjnwO2QYytHljWLJc+tnS5QEpZmmTB0GSODEsigkKUpbCFCKvOyKfZoMm5slg8LSr0rGVkqysk5iUHh3cMU4GD8SS2QzTGhDcsKv3ElNvHzTj8MoOeOct+8/d5UokccyfbJIYtIqLAf8aGebdy7/R5QG+3+GZ9XLnFXwBD+yC4BnhT5YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDUtMDlUMTA6MDc6NTQrMDA6MDAsETXuAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA1LTA5VDEwOjA3OjU0KzAwOjAwXUyNUgAAAABJRU5ErkJggg==) left top no-repeat}
+.mdui-typo{font-size:16px;line-height:1.5;border-top:1px solid silver;margin-top:10px;padding-top:10px;white-space:nowrap}
 </style>`);
 
 
@@ -48,6 +49,8 @@ function init(){
     <h1 id="heading">Index of <?php echo urldecode($path);?></h1>
     <table id="table">
     </table>
+<!--    添加markdown文本阅读区域-->
+    <div id="md" class="mdui-typo" style="display:none;padding: 20px;"></div>
 	`;
     $('body').html(html);
 }
@@ -322,6 +325,14 @@ function list_files(path,files){
 				</tr>
             `;
         }
+        if(item['name']=="README.md"){
+            var p = path+item.name;
+            $.get(p, function(data){
+                var content = marked(data);
+                $('#md').html(content);
+                $('#md').show();
+            });
+        }
     }
     $('#table').append(html);
 	// $('#list').html(html);
@@ -368,6 +379,10 @@ function formatFileSize(bytes) {
     else if (bytes==1)          {bytes=bytes+' byte';}
     else                        {bytes='';}
     return bytes;
+}
+
+function marked(data){
+    return data;
 }
 
 // 监听回退事件
